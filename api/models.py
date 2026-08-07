@@ -2,9 +2,8 @@ from django.db import models
 
 class EnqueteMobilite(models.Model):
     # Lieu de résidence
-    commune = models.CharField(max_length=100)
-    quartier = models.CharField(max_length=150)
-
+    residence= models.JSONField(default=list)
+     
     # Profil
     status = models.CharField(max_length=100)
 
