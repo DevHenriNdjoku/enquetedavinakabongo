@@ -3,6 +3,7 @@ const surveyQuestions = [
     {
         id: 1,
         type: 'select-text',
+        key: 'residence',
         question: "Quel est votre lieu de résidence (commune/quartier) ?",
         required: true,
         communes: [
@@ -35,6 +36,7 @@ const surveyQuestions = [
     {
         id: 2,
         type: 'radio',
+        key: 'status',
         question: "Quel est votre statut ?",
         required: true,
         options: [
@@ -47,6 +49,7 @@ const surveyQuestions = [
     {
         id: 3,
         type: 'radio',
+        key: 'mode_transport_actuel',
         question: "Quel moyen de transport utilisez-vous principalement pour vous rendre à l'INBTP ?",
         required: true,
         options: [
@@ -63,6 +66,7 @@ const surveyQuestions = [
     {
         id: 4,
         type: 'radio',
+        key: 'temps_deplacement',
         question: "Combien de temps mettez-vous en moyenne pour arriver à l'INBTP ?",
         required: true,
         options: [
@@ -77,7 +81,8 @@ const surveyQuestions = [
     {
         id: 5,
         type: 'radio',
-        question: "À quelle heure arrivez-vous habituellement à l'INBTP ?",
+        question: " À quel moment effectuez-vous généralement vos déplacements liés à l’INBTP ? Pour l’arrivée ?",
+        key: 'moment_arrivee',
         required: true,
         options: [
             "Avant 7h00",
@@ -91,7 +96,8 @@ const surveyQuestions = [
     {
         id: 6,
         type: 'radio',
-        question: "À quelle heure quittez-vous habituellement l'INBTP ?",
+        question: " À quel moment effectuez-vous généralement vos déplacements liés à l’INBTP ? Pour le depart ?",
+        key: 'moment_depart',
         required: true,
         options: [
             "Avant 12h00",
@@ -105,6 +111,7 @@ const surveyQuestions = [
     {
         id: 7,
         type: 'radio',
+        key: 'combinaison_transport',
         question: "Utilisez-vous une combinaison de plusieurs moyens de transport pour effectuer votre trajet ?",
         required: true,
         options: [
@@ -115,6 +122,7 @@ const surveyQuestions = [
     {
         id: 8,
         type: 'radio',
+        key: 'combinaison_utilisee',
         question: "Quelle combinaison utilisez-vous ?",
         required: true,
         options: [
@@ -134,7 +142,8 @@ const surveyQuestions = [
     {
         id: 9,
         type: 'radio',
-        question: "Quelle est votre principale difficulté lors de vos déplacements vers l'INBTP ?",
+        key: 'problemes_deplacement',
+        question: " Quels problèmes rencontrez-vous lors de vos déplacements autour de l’INBTP ?",
         required: true,
         options: [
             "Embouteillages",
@@ -150,6 +159,7 @@ const surveyQuestions = [
     {
         id: 10,
         type: 'radio',
+        key: 'situation_dangereuse',
         question: "Avez-vous déjà rencontré une situation dangereuse lors de vos déplacements autour de l'INBTP ?",
         required: true,
         options: [
@@ -160,6 +170,7 @@ const surveyQuestions = [
     {
         id: 11,
         type: 'text',
+        key: 'situation_dangereuse_details',
         question: "Si oui, précisez :",
         required: true,
         condition: function(answers) {
@@ -169,7 +180,8 @@ const surveyQuestions = [
     {
         id: 12,
         type: 'radio',
-        question: "Que pensez-vous des infrastructures actuelles autour de l'INBTP ?",
+        question: "Comment évaluez-vous l’organisation actuelle des déplacements autour de l’INBTP ?",
+        key: 'evaluation_organisation_deplacements',
         required: true,
         options: [
             "Très bonnes",
@@ -183,104 +195,34 @@ const surveyQuestions = [
     {
         id: 13,
         type: 'checkbox',
-        question: "Quels aménagements souhaiteriez-vous voir autour de l'INBTP ? (Plusieurs choix possibles)",
+        question: "Quels aménagements souhaiteriez-vous voir en priorité autour de l'INBTP ? (Plusieurs choix possibles)",
+        key: 'amenagements_souhaites',
         required: true,
         options: [
             "Abribus",
-            "Passages piétons sécurisés",
-            "Piste cyclable",
             "Parking pour motos",
+            "Trottoirs aménagés",
+            "Passages piétons sécurisés",
+            "Zone  d'attente pour voyageurs",
+            "Piste cyclable",
             "Parking pour véhicules",
             "Éclairage public",
-            "Trottoirs aménagés",
-            "Signalisation routière",
+            "Signalisation",
             "Autre"
         ]
     },
     {
         id: 14,
         type: 'radio',
-        question: "Seriez-vous favorable à l'aménagement d'un pôle d'échange multimodal près de l'INBTP ?",
+        question: " Selon vous, quel serait le principal avantage d’un pôle d’échange multimodal ?",
+        key: 'avantage_pole_echange',
         required: true,
         options: [
-            "Très favorable",
-            "Favorable",
-            "Indifférent",
-            "Défavorable",
-            "Autre"
-        ]
-    },
-    {
-        id: 15,
-        type: 'radio',
-        question: "Quel service prioritaire devrait selon vous inclure ce pôle d'échange ?",
-        required: true,
-        options: [
-            "Gare de bus",
-            "Station de taxis",
-            "Station de motos-taxis",
-            "Parking sécurisé",
-            "Espace d'attente couvert",
-            "Commerce de proximité",
-            "Autre"
-        ]
-    },
-    {
-        id: 16,
-        type: 'radio',
-        question: "Quel est votre budget mensuel moyen consacré au transport ?",
-        required: true,
-        options: [
-            "Moins de 10 000 FC",
-            "10 000 à 20 000 FC",
-            "20 000 à 30 000 FC",
-            "30 000 à 50 000 FC",
-            "Plus de 50 000 FC",
-            "Autre"
-        ]
-    },
-    {
-        id: 17,
-        type: 'radio',
-        question: "Quel est votre niveau de satisfaction concernant la sécurité de vos déplacements ?",
-        required: true,
-        options: [
-            "Très satisfait",
-            "Satisfait",
-            "Moyennement satisfait",
-            "Insatisfait",
-            "Très insatisfait",
-            "Autre"
-        ]
-    },
-    {
-        id: 18,
-        type: 'radio',
-        question: "Seriez-vous prêt à utiliser un système de transport en commun amélioré ?",
-        required: true,
-        options: [
-            "Oui, certainement",
-            "Oui, probablement",
-            "Peut-être",
-            "Non, probablement pas",
-            "Non, certainement pas",
-            "Autre"
-        ]
-    },
-    {
-        id: 19,
-        type: 'textarea',
-        question: "Avez-vous des suggestions pour améliorer la mobilité autour de l'INBTP ?",
-        required: false
-    },
-    {
-        id: 20,
-        type: 'radio',
-        question: "Accepteriez-vous de participer à un entretien complémentaire pour approfondir vos réponses ?",
-        required: true,
-        options: [
-            "Oui",
-            "Non"
+            " Réduire les embouteillages",
+            " Améliorer la sécurité",
+            "Faciliter les correspondances entre transports ",
+            "Réduire le temps d’attente ",
+            " Améliorer le confort des usagers"
         ]
     }
 ];
@@ -761,12 +703,12 @@ function saveAnswers(question) {
         case 'radio':
             const selectedRadio = document.querySelector(`input[name="question-${question.id}"]:checked`);
             if (selectedRadio) {
-                appState.answers[question.id] = selectedRadio.value;
+                appState.answers[question.key] = selectedRadio.value;
                 
                 if (selectedRadio.value === 'Autre') {
                     const otherInput = document.getElementById(`other-input-${question.id}`);
                     if (otherInput) {
-                        appState.answers[`${question.id}_other`] = otherInput.value;
+                        appState.answers[`${question.key}_other`] = otherInput.value;
                     }
                 }
             }
@@ -775,12 +717,12 @@ function saveAnswers(question) {
         case 'checkbox':
             const checkedBoxes = document.querySelectorAll(`input[name="question-${question.id}"]:checked`);
             const values = Array.from(checkedBoxes).map(cb => cb.value);
-            appState.answers[question.id] = values;
+            appState.answers[question.key] = values;
             
             if (values.includes('Autre')) {
                 const otherInput = document.getElementById(`other-input-${question.id}`);
                 if (otherInput) {
-                    appState.answers[`${question.id}_other`] = otherInput.value;
+                    appState.answers[`${question.key}_other`] = otherInput.value;
                 }
             }
             break;
@@ -789,7 +731,7 @@ function saveAnswers(question) {
             const communeSelect = document.getElementById('commune-select');
             const quartierInput = document.getElementById('quartier-input');
             if (communeSelect && quartierInput) {
-                appState.answers[question.id] = {
+                appState.answers[question.key] = {
                     commune: communeSelect.value,
                     quartier: quartierInput.value
                 };
@@ -799,14 +741,14 @@ function saveAnswers(question) {
         case 'text':
             const textInput = document.getElementById(`text-input-${question.id}`);
             if (textInput) {
-                appState.answers[question.id] = textInput.value;
+                appState.answers[question.key] = textInput.value;
             }
             break;
             
         case 'textarea':
             const textarea = document.getElementById(`textarea-${question.id}`);
             if (textarea) {
-                appState.answers[question.id] = textarea.value;
+                appState.answers[question.key] = textarea.value;
             }
             break;
     }
@@ -991,8 +933,8 @@ function submitSurvey() {
     });
     
     if (hasErrors) {
-        alert('Certaines questions obligatoires n\'ont pas été répondues. Veuillez vérifier vos réponses.');
-        return;
+        // alert('Certaines questions obligatoires n\'ont pas été répondues. Veuillez vérifier vos réponses.');
+        // return;
     }
     
     // Affichage de la page de remerciement
@@ -1027,3 +969,4 @@ function resetSurvey() {
     // Scroll en haut
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+

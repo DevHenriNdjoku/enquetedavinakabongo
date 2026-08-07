@@ -12,7 +12,6 @@
     <div id="splash-screen" class="splash-screen">
         <div class="blueprint-container">
             <svg id="blueprint-svg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-                <!-- Grille technique -->
                 <defs>
                     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
                         <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
@@ -21,18 +20,14 @@
                         <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.3"/>
                     </pattern>
                 </defs>
-                
-                <!-- Fond avec grilles -->
                 <rect width="800" height="600" fill="#1a2332"/>
                 <rect width="800" height="600" fill="url(#grid-small)"/>
                 <rect width="800" height="600" fill="url(#grid)"/>
                 
-                <!-- Dessins techniques -->
                 <g class="drawing-element" id="road">
-                    <line x1="100" y1="400" x2="700" y2="400" stroke="white" stroke-width="2" stroke-dasharray="0" class="draw-path"/>
+                    <line x1="100" y1="400" x2="700" y2="400" stroke="white" stroke-width="2" class="draw-path"/>
                     <line x1="100" y1="420" x2="700" y2="420" stroke="white" stroke-width="1" stroke-dasharray="10,5" class="draw-path-delayed"/>
                 </g>
-                
                 <g class="drawing-element" id="crosswalk">
                     <rect x="300" y="380" width="80" height="40" fill="none" stroke="white" stroke-width="1" class="draw-path"/>
                     <line x1="310" y1="380" x2="310" y2="420" stroke="white" stroke-width="0.5" class="draw-path-delayed"/>
@@ -43,13 +38,11 @@
                     <line x1="360" y1="380" x2="360" y2="420" stroke="white" stroke-width="0.5" class="draw-path-delayed"/>
                     <line x1="370" y1="380" x2="370" y2="420" stroke="white" stroke-width="0.5" class="draw-path-delayed"/>
                 </g>
-                
                 <g class="drawing-element" id="bus-stop">
                     <rect x="450" y="350" width="60" height="50" fill="none" stroke="white" stroke-width="1.5" class="draw-path"/>
                     <rect x="455" y="355" width="50" height="40" fill="none" stroke="white" stroke-width="0.5" class="draw-path-delayed"/>
                     <text x="465" y="380" fill="white" font-size="8" font-family="monospace" class="draw-path-delayed">BUS</text>
                 </g>
-                
                 <g class="drawing-element" id="bus">
                     <rect x="150" y="360" width="100" height="40" rx="5" fill="none" stroke="white" stroke-width="1.5" class="draw-path"/>
                     <rect x="160" y="365" width="25" height="15" fill="none" stroke="white" stroke-width="0.5" class="draw-path-delayed"/>
@@ -57,7 +50,6 @@
                     <circle cx="170" cy="405" r="8" fill="none" stroke="white" stroke-width="0.8" class="draw-path-delayed"/>
                     <circle cx="230" cy="405" r="8" fill="none" stroke="white" stroke-width="0.8" class="draw-path-delayed"/>
                 </g>
-                
                 <g class="drawing-element" id="moto">
                     <circle cx="530" cy="390" r="15" fill="none" stroke="white" stroke-width="1.2" class="draw-path"/>
                     <circle cx="560" cy="390" r="15" fill="none" stroke="white" stroke-width="1.2" class="draw-path"/>
@@ -65,7 +57,6 @@
                     <line x1="535" y1="365" x2="555" y2="365" stroke="white" stroke-width="1.2" class="draw-path-delayed"/>
                 </g>
             </svg>
-            
             <div id="splash-text" class="splash-text hidden">
                 <h1 class="splash-title">Enquête sur les modes de déplacement</h1>
                 <p class="splash-subtitle">INBTP</p>
@@ -75,141 +66,130 @@
 
     <!-- Application principale -->
     <div id="app" class="app hidden">
-        <!-- Page d'accueil -->
         <div id="home-page" class="page">
             <div class="container">
-                <header class="header">
-                    <div class="logo">
-                        <svg width="60" height="60" viewBox="0 0 60 60">
-                            <rect width="60" height="60" rx="8" fill="none" stroke="#1a2332" stroke-width="2"/>
-                            <text x="30" y="35" text-anchor="middle" fill="#1a2332" font-size="14" font-weight="bold" font-family="Inter">INBTP</text>
-                        </svg>
-                    </div>
-                </header>
                 
-                <main class="main-content">
-                    <div class="hero-section">
-                        <div class="hero-text">
-                            <h1 class="hero-title">Enquête sur les modes de déplacement des étudiants et du personnel de l'INBTP</h1>
-                            <p class="hero-description">
-                                Dans le cadre de son mémoire de fin d'études portant sur l'aménagement d'un pôle d'échange multimodal, 
-                                l'ingenieure <strong>Davina Kabongo</strong> vous invite à participer à ce bref sondage. Votre participation nous aidera à mieux 
-                                comprendre les besoins en mobilité autour de notre institut.
-                            </p>
-                            <div class="anonymity-notice">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M10 2L2 5V10C2 14.5 5.5 18.7 10 20C14.5 18.7 18 14.5 18 10V5L10 2Z" stroke="#e67e22" stroke-width="1.5" fill="none"/>
-                                    <path d="M7 10L9 12L13 8" stroke="#e67e22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <p>Toutes vos réponses sont strictement anonymes et seront utilisées uniquement à des fins académiques.</p>
+                <!-- Logo -->
+                <div class="logo-area">
+                    <svg width="50" height="50" viewBox="0 0 60 60">
+                        <rect width="60" height="60" rx="8" fill="none" stroke="#1a2332" stroke-width="2"/>
+                        <text x="30" y="35" text-anchor="middle" fill="#1a2332" font-size="14" font-weight="bold" font-family="Inter">INBTP</text>
+                    </svg>
+                </div>
+
+                <!-- SECTION 1 : Le saviez-vous ? -->
+                <div class="card pem-card">
+                    <span class="tag">Le saviez-vous ?</span>
+                    
+                    <div class="pem-layout">
+                        <!-- Image -->
+                        <div class="pem-image-col">
+                            <div class="img-wrapper" id="imgWrapper">
+                                <img id="pemImage" src="image.png" alt="Pôle d'échange multimodal" class="pem-img" onerror="this.style.display='none';document.getElementById('imgPlaceholder').style.display='flex';">
+                                <div class="img-placeholder" id="imgPlaceholder" style="display:none;">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#adb5bd" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                    <span>Glisser une image ici</span>
+                                </div>
                             </div>
-                            <button id="start-survey" class="btn-primary">
-                                Commencer l'enquête
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M7 5L13 10L7 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </button>
                         </div>
-                        
-                        <div class="hero-illustration">
-                            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Fond urbain stylisé -->
-                                <rect width="400" height="300" fill="#f8f9fa" rx="15"/>
-                                
-                                <!-- Bâtiments -->
-                                <rect x="30" y="120" width="60" height="150" fill="#1a2332" opacity="0.1" rx="5"/>
-                                <rect x="100" y="80" width="50" height="190" fill="#1a2332" opacity="0.15" rx="5"/>
-                                <rect x="160" y="140" width="70" height="130" fill="#1a2332" opacity="0.1" rx="5"/>
-                                <rect x="240" y="100" width="55" height="170" fill="#1a2332" opacity="0.12" rx="5"/>
-                                
-                                <!-- Route -->
-                                <line x1="0" y1="250" x2="400" y2="250" stroke="#1a2332" stroke-width="2" opacity="0.3"/>
-                                <line x1="0" y1="270" x2="400" y2="270" stroke="#1a2332" stroke-width="1" stroke-dasharray="10,10" opacity="0.2"/>
-                                
-                                <!-- Bus -->
-                                <rect x="200" y="210" width="80" height="35" rx="5" fill="#1a2332" opacity="0.8"/>
-                                <rect x="210" y="215" width="20" height="12" fill="white" opacity="0.5"/>
-                                <rect x="235" y="215" width="20" height="12" fill="white" opacity="0.5"/>
-                                <circle cx="220" cy="250" r="6" fill="#1a2332" opacity="0.8"/>
-                                <circle cx="265" cy="250" r="6" fill="#1a2332" opacity="0.8"/>
-                                
-                                <!-- Moto -->
-                                <circle cx="310" cy="240" r="10" fill="#e67e22" opacity="0.6"/>
-                                <circle cx="330" cy="240" r="10" fill="#e67e22" opacity="0.6"/>
-                                <line x1="320" y1="230" x2="320" y2="215" stroke="#e67e22" stroke-width="2" opacity="0.6"/>
-                                
-                                <!-- Piéton -->
-                                <circle cx="140" cy="235" r="5" fill="#1a2332" opacity="0.5"/>
-                                <line x1="140" y1="240" x2="140" y2="255" stroke="#1a2332" stroke-width="2" opacity="0.5"/>
-                                <line x1="140" y1="248" x2="130" y2="240" stroke="#1a2332" stroke-width="1.5" opacity="0.5"/>
-                                <line x1="140" y1="248" x2="150" y2="240" stroke="#1a2332" stroke-width="1.5" opacity="0.5"/>
+
+                        <!-- Texte -->
+                        <div class="pem-text-col">
+                            <h2 class="pem-heading">Qu'est-ce qu'un Pôle d'Échange Multimodal ?</h2>
+                            <p class="pem-definition">
+                                Un Pôle d'Échange Multimodal (PEM) est un <strong>espace urbain aménagé</strong> qui regroupe plusieurs modes de transport en un seul lieu. Il facilite les <strong>correspondances</strong> pour passer rapidement d'un moyen de déplacement à un autre.
+                            </p>
+                            <div class="pem-benefits">
+                                <div class="benefit"><span class="benefit-dot"></span> Centralisation des transports</div>
+                                <div class="benefit"><span class="benefit-dot"></span> Fluidité du trafic urbain</div>
+                                <div class="benefit"><span class="benefit-dot"></span> Accessibilité pour tous</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 2 : Appel à participation -->
+                <div class="card cta-card">
+                    <div class="cta-layout">
+                        <div class="cta-text">
+                            <span class="tag tag-dark">Enquête académique</span>
+                            
+                        <div class="cta-illustration">
+                            <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="400" height="280" fill="#f8f9fa" rx="14"/>
+                                <rect x="20" y="110" width="45" height="140" fill="#1a2332" opacity=".08" rx="4"/>
+                                <rect x="75" y="75" width="40" height="175" fill="#1a2332" opacity=".12" rx="4"/>
+                                <rect x="125" y="130" width="55" height="120" fill="#1a2332" opacity=".07" rx="4"/>
+                                <rect x="190" y="90" width="48" height="160" fill="#1a2332" opacity=".1" rx="4"/>
+                                <rect x="250" y="115" width="60" height="135" fill="#1a2332" opacity=".06" rx="4"/>
+                                <line x1="0" y1="230" x2="400" y2="230" stroke="#1a2332" stroke-width="2" opacity=".2"/>
+                                <rect x="140" y="195" width="75" height="30" rx="5" fill="#1a2332" opacity=".7"/>
+                                <rect x="148" y="200" width="18" height="10" rx="1" fill="white" opacity=".5"/>
+                                <rect x="172" y="200" width="18" height="10" rx="1" fill="white" opacity=".5"/>
+                                <circle cx="155" cy="228" r="5.5" fill="#1a2332" opacity=".7"/>
+                                <circle cx="200" cy="228" r="5.5" fill="#1a2332" opacity=".7"/>
+                                <circle cx="280" cy="218" r="9" fill="#e67e22" opacity=".4"/>
+                                <circle cx="300" cy="218" r="9" fill="#e67e22" opacity=".4"/>
+                                <line x1="290" y1="209" x2="290" y2="198" stroke="#e67e22" stroke-width="2" opacity=".4"/>
+                                <circle cx="60" cy="218" r="8" fill="#e67e22" opacity=".35"/>
+                                <circle cx="78" cy="218" r="8" fill="#e67e22" opacity=".35"/>
+                                <line x1="69" y1="210" x2="69" y2="200" stroke="#e67e22" stroke-width="2" opacity=".35"/>
+                                <circle cx="110" cy="215" r="4.5" fill="#1a2332" opacity=".35"/>
+                                <line x1="110" y1="220" x2="110" y2="232" stroke="#1a2332" stroke-width="2" opacity=".35"/>
+                                <line x1="110" y1="224" x2="102" y2="217" stroke="#1a2332" stroke-width="1.5" opacity=".35"/>
+                                <line x1="110" y1="224" x2="118" y2="217" stroke="#1a2332" stroke-width="1.5" opacity=".35"/>
                             </svg>
                         </div>
+                            <h1 class="cta-title">Votre avis compte</h1>
+                            <p class="cta-description">
+                                Dans le cadre de son mémoire de fin d'études sur l'aménagement d'un pôle d'échange multimodal, 
+                                l'ingénieure <strong>Davina Kabongo</strong> vous invite à ce sondage. 
+                                Votre participation nous aide à comprendre les besoins en mobilité autour de l'INBTP.
+                            </p>
+                            <div class="anonymity">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 5v6c0 5.5 4.5 10.5 8 12 3.5-1.5 8-6.5 8-12V5l-8-3z" stroke="#e67e22" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#e67e22" stroke-width="2" stroke-linecap="round"/></svg>
+                                <span>Réponses <strong>anonymes</strong> — usage strictement académique</span>
+                            </div>
+                            <button id="start-survey" class="btn">
+                                Commencer l'enquête
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                            </button>
+                        </div>
                     </div>
-                </main>
-                
+                </div>
+
+                <!-- Footer -->
                 <footer class="footer">
-                    <p>Build With Passion by <a href="https://dev-henrindjoku.netlify.app" style="text-decoration: none;color: skyblue;" >Henri Ndjoku</a> </p>
+                    <p>Construit avec passion par <a href="https://dev-henrindjoku.netlify.app" target="_blank" rel="noopener">Henri Ndjoku</a></p>
                 </footer>
             </div>
         </div>
 
-        <!-- Page questionnaire -->
+        <!-- Pages questionnaire et remerciement inchangées -->
         <div id="survey-page" class="page hidden">
             <div class="survey-container">
                 <div class="survey-header">
-                    <div class="progress-bar">
-                        <div id="progress-fill" class="progress-fill"></div>
-                    </div>
+                    <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
                     <p class="step-indicator">Étape <span id="current-step">1</span> sur <span id="total-steps">20</span></p>
                 </div>
-                
-                <div id="questions-container" class="questions-container">
-                    <!-- Les questions seront générées dynamiquement -->
-                </div>
-                
+                <div id="questions-container" class="questions-container"></div>
                 <div class="survey-navigation">
-                    <button id="prev-btn" class="btn-secondary" style="display: none;">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M13 5L7 10L13 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                    <button id="prev-btn" class="btn-outline" style="display:none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                         Précédent
                     </button>
-                    <button id="next-btn" class="btn-primary">
-                        Suivant
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M7 5L13 10L7 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <button id="submit-btn" class="btn-primary" style="display: none;">
-                        Terminer
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M5 10L9 14L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
+                    <button id="next-btn" class="btn">Suivant</button>
+                    <button id="submit-btn" class="btn" style="display:none;">Terminer</button>
                 </div>
             </div>
         </div>
 
-        <!-- Page de remerciement -->
         <div id="thank-you-page" class="page hidden">
-            <div class="container">
-                <div class="thank-you-content">
-                    <div class="success-animation">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="50" r="45" fill="none" stroke="#1a2332" stroke-width="2" class="circle-animation"/>
-                            <path d="M30 50L45 65L70 35" stroke="#e67e22" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" class="check-animation"/>
-                        </svg>
-                    </div>
-                    <h2 class="thank-you-title">Merci pour votre contribution au développement des infrastructures de notre institut !</h2>
-                    <p class="thank-you-message">Vos réponses ont été enregistrées avec succès et contribueront à l'amélioration de la mobilité urbaine autour de l'INBTP.</p>
-                    <button id="new-response-btn" class="btn-primary">
-                        Nouvelle réponse
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M5 10H15M10 5V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
+            <div class="thank-you-content">
+                <svg class="checkmark" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#1a2332" stroke-width="2" class="circle-draw"/><path d="M30 50l15 15 25-25" stroke="#e67e22" stroke-width="3" fill="none" stroke-linecap="round" class="check-draw"/></svg>
+                <h2>Merci pour votre contribution !</h2>
+                <p>Vos réponses contribueront à l'amélioration de la mobilité urbaine autour de l'INBTP.</p>
+                <button id="new-response-btn" class="btn">Nouvelle réponse</button>
             </div>
         </div>
     </div>
