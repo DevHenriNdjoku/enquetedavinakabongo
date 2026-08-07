@@ -136,7 +136,7 @@ const surveyQuestions = [
             "Autre"
         ],
         condition: function(answers) {
-            return answers[7] === "Oui";
+            return answers["combinaison_transport"] === "Oui";
         }
     },
     {
@@ -174,7 +174,7 @@ const surveyQuestions = [
         question: "Si oui, précisez :",
         required: true,
         condition: function(answers) {
-            return answers[10] === "Oui";
+            return answers["situation_dangereuse"] === "Oui";
         }
     },
     {
@@ -932,16 +932,24 @@ function submitSurvey() {
         }
     });
     
-    if (hasErrors) {
-        // alert('Certaines questions obligatoires n\'ont pas été répondues. Veuillez vérifier vos réponses.');
-        // return;
-    }
-    
+
+        fetch('https://davinakabongo.onrender.com/enquete-mobilite/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(appState.answers)
+    })
+    .then(response => response.json())
+    .then(data => {
+    console.log('Questionnaire soumis avec succès:', data);
     // Affichage de la page de remerciement
     document.getElementById('survey-page').classList.add('hidden');
     document.getElementById('thank-you-page').classList.remove('hidden');
     
     // Animation de succès
+    
+
     const thankYouPage = document.getElementById('thank-you-page');
     thankYouPage.style.opacity = '0';
     thankYouPage.style.transform = 'translateY(20px)';
@@ -953,6 +961,31 @@ function submitSurvey() {
     }, 100);
     
     // Log des réponses (à remplacer par un appel API plus tard)
+
+
+    })
+    .catch(error => {
+        console.error('Erreur lors de la soumission du questionnaire:', error);
+        alert('Certaines questions obligatoires n\'ont pas été répondues. Veuillez vérifier vos réponses.');
+    });
+
+
+
+
+
+
+
+
+
+
+    if (hasErrors) {
+        // alert('Certaines questions obligatoires n\'ont pas été répondues. Veuillez vérifier vos réponses.');
+        // return;
+    }
+    
+
+
+    
     console.log('Réponses de l\'enquête:', appState.answers);
 }
 
