@@ -33,13 +33,10 @@ DEBUG = True
 ALLOWED_HOSTS = ["https://davinakabongo.netlify.app/","https://davinakabongo.onrender.com/","davinakabongo.onrender.com", "davinakabongo.netlify.app",'locahost',"127.0.0.1:8000","127.0.0.1"]
 cors_allowed_origins = [
     "https://davinakabongo.netlify.app/",
-    "elyseediawela.netlify.app",
     "localhost:3000",
     "localhost",
     "127.0.0.1:8000",
-    "https://davinakabongo.onrender.com/",
-    "enqueteeli2.onrender.com"
-        
+    "https://davinakabongo.onrender.com/"    
     ]
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
@@ -56,7 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-      'rest_framework',
+    'rest_framework',
     'corsheaders',
     'api',
     "simple_history",
