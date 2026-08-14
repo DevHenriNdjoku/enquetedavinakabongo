@@ -45,39 +45,35 @@ const surveyQuestions = [
             "Personnel administratif",
             "Autre"
         ]
-    },
-    {
+    },{
         id: 3,
         type: 'radio',
-        key: 'mode_transport_actuel',
-        question: "Quel moyen de transport utilisez-vous principalement pour vous rendre à l'INBTP ?",
+        key: 'niveauEtude',
+        question: ". Quel est votre niveau d’étude ? ",
         required: true,
         options: [
-            "Marche à pied",
-            "Moto personnelle",
-            "Moto taxi",
-            "Bus",
-            "Taxi",
-            "Véhicule personnel",
-            "Vélo",
-            "Autre"
+            "Préparatoire",
+            "L1",
+            "L2",
+            "L3",
+            "M1",
+            "M2",
+            "Non applicable",
         ]
-    },
-    {
+    },{
         id: 4,
         type: 'radio',
-        key: 'temps_deplacement',
-        question: "Combien de temps mettez-vous en moyenne pour arriver à l'INBTP ?",
+        key: 'fequenceDeplacement',
+        question: ". Quel est votre frequence de deplacement vers l'INBTP ? ",
         required: true,
         options: [
-            "Moins de 15 minutes",
-            "15 à 30 minutes",
-            "30 à 45 minutes",
-            "45 minutes à 1 heure",
-            "Plus d'1 heure",
-            "Autre"
+            "Tout les jours",
+            "Plusieurs fois par semaine",
+            "quelque fois par mois",
+            "Rarement"
         ]
     },
+    
     {
         id: 5,
         type: 'radio',
@@ -111,6 +107,23 @@ const surveyQuestions = [
     {
         id: 7,
         type: 'radio',
+        key: 'mode_transport_actuel',
+        question: "Quel moyen de transport utilisez-vous principalement pour vous rendre à l'INBTP ?",
+        required: true,
+        options: [
+            "Marche à pied",
+            "Moto personnelle",
+            "Moto taxi",
+            "Bus",
+            "Taxi",
+            "Véhicule personnel",
+            "Vélo",
+            "Autre"
+        ]
+    },
+    {
+        id: 8,
+        type: 'radio',
         key: 'combinaison_transport',
         question: "Utilisez-vous une combinaison de plusieurs moyens de transport pour effectuer votre trajet ?",
         required: true,
@@ -119,8 +132,9 @@ const surveyQuestions = [
             "Non"
         ]
     },
+    
     {
-        id: 8,
+        id: 9,
         type: 'radio',
         key: 'combinaison_utilisee',
         question: "Quelle combinaison utilisez-vous ?",
@@ -139,36 +153,108 @@ const surveyQuestions = [
             return answers["combinaison_transport"] === "Oui";
         }
     },
-    {
-        id: 9,
-        type: 'radio',
-        key: 'problemes_deplacement',
-        question: " Quels problèmes rencontrez-vous lors de vos déplacements autour de l’INBTP ?",
-        required: true,
-        options: [
-            "Embouteillages",
-            "Manque de transports en commun",
-            "Coût élevé du transport",
-            "Mauvais état des routes",
-            "Insécurité",
-            "Distance trop longue",
-            "Absence d'abris aux arrêts de bus",
-            "Autre"
-        ]
-    },
+
     {
         id: 10,
         type: 'radio',
-        key: 'situation_dangereuse',
-        question: "Avez-vous déjà rencontré une situation dangereuse lors de vos déplacements autour de l'INBTP ?",
+        key: 'temps_deplacement',
+        question: "Combien de temps mettez-vous en moyenne pour arriver à l'INBTP ?",
         required: true,
         options: [
-            "Oui",
-            "Non"
+            "Moins de 15 minutes",
+            "15 à 30 minutes",
+            "30 à 45 minutes",
+            "45 minutes à 1 heure",
+            "Plus d'1 heure",
+            "Autre"
+        ]
+    },
+    
+    {
+        id: 11,
+        type: 'radio',
+        key: 'lieu_de_descente',
+        question: ". À quel endroit descendez-vous généralement de votre moyen de transport pour poursuivre votre trajet vers l’INBTP  ?",
+        required: true,
+        options: [
+            "À proximité immédiate de l’INBTP ",
+            " À quelques mètres de l’INBTP ",
+            " À une distance nécessitant de marcher plusieurs minutes ",
+            " À une distance nécessitant de prendre une moto ",
+        
+        ]
+    },{
+        id: 12,
+        type: 'radio',
+        key: 'temps_deplacement_descente_inbtp',
+        question: "Depuis votre point de descente, combien de temps faut-il généralement pour rejoindre l’INBTP à pied ?",
+        required: true,
+        options: [
+            "Moins de 5min ",
+            "5min à 10min ",
+            "10min à 15min ",
+            "Plus de 15min ",
+            
         ]
     },
     {
-        id: 11,
+        id: 13,
+        type: 'radio',
+        key: 'satisfaction_organisation_deplacement_inbtp',
+        question: " . Comment évaluez-vous l’organisation actuelle des déplacements autour de l’INBTP ?",
+        required: true,
+        options: [
+            "Très satisfaisante ",
+            "Satisfaisante",
+            " Peu satisfaisante",
+            "Mauvaise"
+        ]
+    },
+    {
+        id: 14,
+        type: 'checkbox',
+        key: 'difficulte_proximite_inbtp',
+        question: "Quelles difficultés rencontrez-vous principalement lors de vos déplacements à proximité de l’INBTP ? ",
+        required: true,
+        options: [
+            "Difficultés de circulation",
+            " Difficultés liées à la dépose et à la prise en charge des passagers ",
+            "Stationnement ou arrêt désordonné des véhicules et motos ",
+            "Distance importante entre le point de descente et l’INBTP ",
+            " Difficultés de circulation des piétons ",
+            " Manque d’espaces aménagés pour attendre ",
+            "Difficultés pour traverser la route ",
+            " Conflits entre les différents usagers ",
+            "Risque d’accident ",
+            "Insuffisance de signalisation ",
+        ]
+    },{
+        id: 15,
+        type: 'radio',
+        key: 'confli_entre_usage',
+        question: "Observez-vous fréquemment des conflits entre les différents usagers (bus, motos, voitures et piétons) ?  ",
+        required: true,
+        options: [
+            "Très frequemment",
+            " Frequemment ",
+            "Parfois ",
+            "Rarement ",
+            " Jamais "
+        ]
+    },
+    {
+        id: 16,
+        type: 'radio',
+        key: 'situation_dangereuse',
+        question: " Avez-vous déjà rencontré une situation dangereuse lors de vos déplacements autour de l’INBTP ?",
+        required: true,
+        options: [
+            "Oui",
+            " Non "
+        ]
+    },
+    {
+        id: 17,
         type: 'text',
         key: 'situation_dangereuse_details',
         question: "Si oui, précisez :",
@@ -178,53 +264,76 @@ const surveyQuestions = [
         }
     },
     {
-        id: 12,
+        id: 18,
         type: 'radio',
-        question: "Comment évaluez-vous l’organisation actuelle des déplacements autour de l’INBTP ?",
-        key: 'evaluation_organisation_deplacements',
+        question: ". Les piétons disposent-ils actuellement d’un espace suffisamment sécurisé pour circuler à proximité de l’INBTP ? ",
+        key: 'disponibilit_amenagement_pieto_autour_inbtp',
         required: true,
         options: [
-            "Très bonnes",
-            "Bonnes",
-            "Acceptables",
-            "Mauvaises",
-            "Très mauvaises",
-            "Autre"
+            "Oui",
+            "Partiellement",
+            "Non"
         ]
     },
     {
-        id: 13,
+        id: 19,
+        type: 'radio',
+        question: "Selon vous, l’absence d’espaces aménagés pour la dépose, la prise en charge et l’attente des usagers contribue-t-elle aux difficultés de circulation autour de l’INBTP ? ",
+        key: 'absence_espace_amenage_et_difficulte_de_circulation',
+        required: true,
+        options: [
+            "Oui, Beaucoup",
+            "Legerement",
+            "Non",
+        ]
+    },
+    {
+        id: 20,
+        type: 'radio',
+        question: " Pensez-vous qu’un espace organisé permettant de gérer les bus, motos-taxis et piétons serait nécessaire autour de l’INBTP? ",
+        key: 'amenagement_pietons_mot_bus',
+        required: true,
+        options: [
+            "Oui",
+            "Non",
+        ]
+    },
+    
+    {
+        id: 21,
         type: 'checkbox',
-        question: "Quels aménagements souhaiteriez-vous voir en priorité autour de l'INBTP ? (Plusieurs choix possibles)",
+        question: "Quels aménagements vous semblent prioritaires pour le futur pôle d’échange multimodal ?  ",
+        key: 'amenagement_prioritaire',
+        required: true,
+        options: [
+            "Espaces organisés pour la dépose et la prise en charge des passagers ",
+            " Arrêts aménagés pour les transports collectifs",
+            "Espace organisé pour les motos-taxis ",
+            " Trottoirs sécurisés ",
+            "Passage piéton",
+            "Zone d’attente pour les voyageurs ",
+            "Éclairage public ",
+            "Signalisation routière ",
+            "Abribus",
+            "Dispositifs de drainage "
+        ]
+    },
+    {
+        id: 22,
+        type: 'checkbox',
+        question: " Quelle serait, selon vous, la priorité absolue du futur aménagement ?",
         key: 'amenagements_souhaites',
         required: true,
         options: [
-            "Abribus",
-            "Parking pour motos",
+            "Faciliter l’accès à l’INBTP",
+            "Fluidifier la circulation",
             "Trottoirs aménagés",
-            "Passages piétons sécurisés",
-            "Zone  d'attente pour voyageurs",
-            "Piste cyclable",
-            "Parking pour véhicules",
-            "Éclairage public",
-            "Signalisation",
-            "Autre"
+            " Améliorer la sécurité des piétons",
+            "Organiser la dépose et la prise en charge des passagers ",
+            "Réduire les conflits entre les différents usagers ",
+            " Améliorer le confort des voyageurs ",
         ]
     },
-    {
-        id: 14,
-        type: 'radio',
-        question: " Selon vous, quel serait le principal avantage d’un pôle d’échange multimodal ?",
-        key: 'avantage_pole_echange',
-        required: true,
-        options: [
-            " Réduire les embouteillages",
-            " Améliorer la sécurité",
-            "Faciliter les correspondances entre transports ",
-            "Réduire le temps d’attente ",
-            " Améliorer le confort des usagers"
-        ]
-    }
 ];
 
 // État de l'application
@@ -966,7 +1075,27 @@ function submitSurvey() {
     })
     .catch(error => {
         console.error('Erreur lors de la soumission du questionnaire:', error);
-        alert('Certaines questions obligatoires n\'ont pas été répondues. Veuillez vérifier vos réponses.');
+        // alert('Certaines questions obligatoires n\'ont pas été répondues. Veuillez vérifier vos réponses.');
+    })
+    .finally(()=>{
+         document.getElementById('survey-page').classList.add('hidden');
+    document.getElementById('thank-you-page').classList.remove('hidden');
+    
+    // Animation de succès
+    
+
+    const thankYouPage = document.getElementById('thank-you-page');
+    thankYouPage.style.opacity = '0';
+    thankYouPage.style.transform = 'translateY(20px)';
+    
+    setTimeout(() => {
+        thankYouPage.style.transition = 'all 0.5s ease';
+        thankYouPage.style.opacity = '1';
+        thankYouPage.style.transform = 'translateY(0)';
+    }, 100);
+    
+   
+
     });
 
 
