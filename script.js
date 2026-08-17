@@ -1,4 +1,5 @@
 // Configuration des questions de l'enquête
+
 const surveyQuestions = [
     {
         id: 1,
@@ -201,7 +202,7 @@ const surveyQuestions = [
         id: 13,
         type: 'radio',
         key: 'satisfaction_organisation_deplacement_inbtp',
-        question: " . Comment évaluez-vous l’organisation actuelle des déplacements autour de l’INBTP ?",
+        question: "Comment évaluez-vous l’organisation actuelle des déplacements autour de l’INBTP ?",
         required: true,
         options: [
             "Très satisfaisante ",
@@ -214,7 +215,7 @@ const surveyQuestions = [
         id: 14,
         type: 'checkbox',
         key: 'difficulte_proximite_inbtp',
-        question: "Quelles difficultés rencontrez-vous principalement lors de vos déplacements à proximité de l’INBTP ? ",
+        question: "Quelles difficultés rencontrez-vous principalement lors de vos déplacements à proximité de l’INBTP ?(Vous pouvez sélectionner plusieurs réponses ) ",
         required: true,
         options: [
             "Difficultés de circulation",
@@ -302,7 +303,7 @@ const surveyQuestions = [
     {
         id: 21,
         type: 'checkbox',
-        question: "Quels aménagements vous semblent prioritaires pour le futur pôle d’échange multimodal ?  ",
+        question: "Quels aménagements vous semblent prioritaires pour le futur pôle d’échange multimodal ? ?(Vous pouvez sélectionner plusieurs réponses )  ",
         key: 'amenagement_prioritaire',
         required: true,
         options: [
@@ -321,7 +322,7 @@ const surveyQuestions = [
     {
         id: 22,
         type: 'checkbox',
-        question: " Quelle serait, selon vous, la priorité absolue du futur aménagement ?",
+        question: " Quelle serait, selon vous, la priorité absolue du futur aménagement ? ?(Vous pouvez sélectionner plusieurs réponses ) ",
         key: 'amenagements_souhaites',
         required: true,
         options: [
