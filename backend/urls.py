@@ -16,13 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import CouCouViewSet, EnqueteMobiliteViewSet, ExportCSVAPIView, DashboardAPIView
+from api.views import CouCouViewSet, EnqueteMobiliteViewSet, ExportCSVAPIView # DashboardAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('coucou/', CouCouViewSet.as_view(), name='coucou'),
     path('enquete-mobilite/', EnqueteMobiliteViewSet.as_view(), name='enquete-mobilite'),
     path("export/enquete-csv/",ExportCSVAPIView.as_view(),name="export-enquete-csv"),
-    path("dashboard/",DashboardAPIView.as_view(),name="dashboard")
+    # path("dashboard/",DashboardAPIView.as_view(),name="dashboard")
 
 ]

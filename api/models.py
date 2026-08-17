@@ -1,46 +1,29 @@
 from django.db import models
 
 class EnqueteMobilite(models.Model):
-    # Lieu de résidence
+    
+    absence_espace_amenage_et_difficulte_de_circulation=models.CharField(max_length=20)
+    amenagement_pietons_mot_bus=models.CharField(max_length=50)
+    amenagement_prioritaire=models.JSONField(default=list)
+    amenagements_souhaites=models.JSONField(default=list)
+    combinaison_transport=models.CharField(max_length=15)
+    combinaison_utilisee=models.CharField(max_length=100)
+    confli_entre_usage=models.CharField(max_length=45)
+    difficulte_proximite_inbtp=models.JSONField(default=list)
+    disponibilit_amenagement_pieto_autour_inbtp=models.CharField(max_length=50)
+    fequenceDeplacement=models.CharField(max_length=100)
+    lieu_de_descente=models.CharField(max_length=100)
+    mode_transport_actuel=models.CharField(max_length=50)
+    moment_arrivee=models.CharField(max_length=100)
+    moment_depart=models.CharField(max_length=50)
+    niveauEtude=models.CharField(max_length=20)
     residence= models.JSONField(default=list)
-     
-    # Profil
-    status = models.CharField(max_length=100)
-
-    # Déplacements
-    mode_transport_actuel = models.CharField(max_length=100)
-    temps_deplacement = models.CharField(max_length=100)
-    moment_arrivee = models.CharField(max_length=100)
-    moment_depart = models.CharField(max_length=100)
-
-    # Combinaison de transport
-    combinaison_transport = models.CharField(max_length=10)
-    itineraire_combinaison = models.CharField(
-        max_length=255,
-        blank=True,
-        null=True
-    )
-
-    # Difficultés rencontrées
-    problemes_deplacement = models.CharField(max_length=255)
-
-    # Situation dangereuse
-    situation_dangereuse = models.CharField(max_length=10)
-    precision_situation_dangereuse = models.TextField(
-        blank=True,
-        null=True
-    )
-
-    # Organisation actuelle
-    evaluation_organisation_deplacements = models.CharField(max_length=100)
-
-    # Aménagements souhaités
-    amenagements_souhaites = models.JSONField(default=list)
-
-    # Avis sur le pôle multimodal
-    avantage_pole_echange = models.CharField(max_length=255)
-
-    # Métadonnées
+    satisfaction_organisation_deplacement_inbtp=models.CharField(max_length=30)
+    situation_dangereuse=models.CharField(max_length=20)
+    situation_dangereuse_details=models.TextField(null=True,blank=True)
+    status=models.CharField(max_length=30)
+    temps_deplacement=models.CharField(max_length=40)
+    temps_deplacement_descente_inbtp=models.CharField(max_length=45)
     date_creation = models.DateTimeField(auto_now_add=True)
 
     class Meta:
