@@ -437,6 +437,132 @@
             }
         }
 
+        /* Styles pour l'analyse combinée */
+.combined-analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.combined-item {
+    background: var(--background);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.combined-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.combined-item .mini-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.combined-item .mini-table th {
+    background: var(--card-bg);
+    padding: 8px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border);
+}
+
+.combined-item .mini-table td {
+    padding: 8px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+}
+
+.combined-item .mini-rank {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    text-align: center;
+    line-height: 24px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.combined-item .rank-1 { background: #ffd700; color: #333; }
+.combined-item .rank-2 { background: #c0c0c0; color: #333; }
+.combined-item .rank-3 { background: #cd7f32; color: white; }
+
+.badge {
+    background: var(--accent);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Styles pour les tableaux améliorés */
+.enhanced-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.enhanced-table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.enhanced-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.enhanced-table tbody tr {
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.enhanced-table tbody tr:hover {
+    background: var(--background);
+    transform: translateX(5px);
+}
+
+.enhanced-table .rank-cell {
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.enhanced-table .percentage-cell {
+    text-align: right;
+    font-weight: 600;
+}
+
+/* Animation pour le changement de vue */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
         /* Toast Notification */
         .toast {
             position: fixed;
@@ -681,7 +807,88 @@
                         </div>
                         <div class="dashboard-card-body" id="pmbTable"></div>
                     </div>
+                    <!-- Dans la section Aménagement, ajoutez ces cartes supplémentaires -->
+<div class="dashboard-section" id="amenagement" style="display:none;">
+    <h2 style="margin-bottom: 20px;">Aménagement</h2>
+    
+    <!-- Nouveau : Tableau combiné Top Aménagements, Difficultés et Souhaits -->
+    <div class="dashboard-card" style="margin-bottom: 25px;">
+        <div class="dashboard-card-header">
+            <h3><i class="fas fa-chart-bar" style="color: var(--accent);"></i> Analyse Combinée des Priorités</h3>
+            <div class="card-actions">
+                <button class="btn btn-outline" onclick="toggleCombinedView()">
+                    <i class="fas fa-expand"></i> Vue détaillée
+                </button>
+            </div>
+        </div>
+        <div class="dashboard-card-body">
+            <div class="combined-analysis-grid">
+                <div class="combined-item">
+                    <h4 style="color: var(--accent); margin-bottom: 15px;">
+                        <i class="fas fa-list"></i> Top Aménagements Prioritaires
+                    </h4>
+                    <div id="combinedAmenagements"></div>
                 </div>
+                <div class="combined-item">
+                    <h4 style="color: var(--danger); margin-bottom: 15px;">
+                        <i class="fas fa-exclamation-circle"></i> Top Difficultés
+                    </h4>
+                    <div id="combinedDifficultes"></div>
+                </div>
+                <div class="combined-item">
+                    <h4 style="color: var(--success); margin-bottom: 15px;">
+                        <i class="fas fa-check-circle"></i> Top Souhaits
+                    </h4>
+                    <div id="combinedSouhaits"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tableaux individuels -->
+    <div class="dashboard-grid">
+        <div class="dashboard-card">
+            <div class="dashboard-card-header">
+                <h3><i class="fas fa-list" style="color: var(--accent);"></i> Aménagements Prioritaires</h3>
+                <span class="badge">Top 10</span>
+            </div>
+            <div class="dashboard-card-body" id="amenagementTable"></div>
+        </div>
+        
+        <div class="dashboard-card">
+            <div class="dashboard-card-header">
+                <h3><i class="fas fa-exclamation-circle" style="color: var(--danger);"></i> Difficultés Rencontrées</h3>
+                <span class="badge">Top 10</span>
+            </div>
+            <div class="dashboard-card-body" id="difficultesTable"></div>
+        </div>
+        
+        <div class="dashboard-card">
+            <div class="dashboard-card-header">
+                <h3><i class="fas fa-check-circle" style="color: var(--success);"></i> Aménagements Souhaités</h3>
+                <span class="badge">Top 10</span>
+            </div>
+            <div class="dashboard-card-body" id="souhaitsTable"></div>
+        </div>
+        
+        <!-- Nouveau : Tableaux Disponibilité et Absence -->
+        <div class="dashboard-card">
+            <div class="dashboard-card-header">
+                <h3><i class="fas fa-walking" style="color: var(--info);"></i> Disponibilité Aménagement Piétons</h3>
+            </div>
+            <div class="dashboard-card-body" id="disponibilitePietonsTable"></div>
+        </div>
+        
+        <div class="dashboard-card">
+            <div class="dashboard-card-header">
+                <h3><i class="fas fa-ban" style="color: var(--warning);"></i> Absence Espace Aménagé</h3>
+            </div>
+            <div class="dashboard-card-body" id="absenceEspaceTable"></div>
+        </div>
+    </div>
+</div>
+                </div>
+                
             </div>
 
             <!-- Profil Section -->
