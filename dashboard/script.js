@@ -223,13 +223,15 @@ function createTable(data, columns, options = {}) {
         return '<p class="text-muted">Aucune donnée disponible</p>';
     }
     
-    const maxCount = maxValue || Math.max(...data.map(item => item[progressKey] || 0));
+    const maxCount = data.reduce((sum, item) => sum + (item[progressKey] || 0), 0);
     
     const tableHeaders = columns.map(col => `<th>${col.label}</th>`).join('');
     
     const tableRows = data.map((item, index) => {
         const count = item[progressKey] || 0;
         const percentage = maxCount > 0 ? ((count / maxCount) * 100).toFixed(1) : 0;
+        console.log(count + ' / ' + maxCount + ' = ' + percentage + '%');
+        
         
         const cells = columns.map(col => {
             if (col.type === 'progress') {
