@@ -223,15 +223,16 @@ function createTable(data, columns, options = {}) {
         return '<p class="text-muted">Aucune donnée disponible</p>';
     }
     
-    const maxCount = data.reduce((sum, item) => sum + (item[progressKey] || 0), 0);
+    const totalRespondents = Number(statsData?.total_reponses) || 0;
     
     const tableHeaders = columns.map(col => `<th>${col.label}</th>`).join('');
     
     const tableRows = data.map((item, index) => {
         const count = item[progressKey] || 0;
-        const percentage = maxCount > 0 ? ((count / maxCount) * 100).toFixed(1) : 0;
-        console.log(count + ' / ' + maxCount + ' = ' + percentage + '%');
-        
+        const percentage = totalRespondents > 0
+            ? ((count / totalRespondents) * 100).toFixed(1)
+            : 0;
+        // console.log(item)
         
         const cells = columns.map(col => {
             if (col.type === 'progress') {
@@ -485,14 +486,16 @@ function createEnhancedTable(data, options = {}) {
     }
     
     const limitedData = data.slice(0, maxItems);
-    const maxCount = Math.max(...limitedData.map(item => item[countKey] || 0));
-    const totalCount = limitedData.reduce((sum, item) => sum + (item[countKey] || 0), 0);
+    const maxCount = limitedData.reduce((sum, item) => sum + (item[countKey] || 0),0);
+
+    const totalCount = limitedData.reduce((sum, item) => sum + (item[countKey] || 0),0);
     
     const tableRows = limitedData.map((item, index) => {
         const count = item[countKey] || 0;
-        const percentage = totalCount > 0 ? ((count / totalCount) * 100).toFixed(1) : 0;
+        const percentage = totalCount > 0 ? ((count / 224) * 100).toFixed(1) : 0;
         const rankClass = index < 3 ? `rank-${index + 1}` : '';
-        
+        // console.log('Max Count:', percentage + '% for ' + item[valueKey] + ' with count ' + count);
+        console.log(totalCount + ' total count, ' + count + ' for ' + item[valueKey] + ', percentage: ' + percentage + '%');
         return `
             <tr class="fade-in" style="animation-delay: ${index * 0.05}s;">
                 ${showRank ? `
@@ -514,7 +517,7 @@ function createEnhancedTable(data, options = {}) {
                 ` : ''}
                 <td>
                     <div class="progress-bar">
-                        <div class="progress" style="width: ${(count / maxCount) * 100}%; background: ${color};"></div>
+                        <div class="progress" style="width: ${totalCount > 0 ? percentage : 0}%; background: ${color};"></div>
                     </div>
                 </td>
             </tr>
