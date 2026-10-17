@@ -2,7 +2,8 @@
 const API_BASE_URL = 'https://davinakabongo.onrender.com';
 const API_ENDPOINTS = {
     dashboard: `${API_BASE_URL}/dashboard/`,
-    stats: `${API_BASE_URL}/dashboard/stats/`
+    stats: `${API_BASE_URL}/dashboard/stats/`,
+    export: `${API_BASE_URL}/export/enquete-excel/`
 };
 
 // État global
@@ -815,24 +816,17 @@ function refreshData() {
     loadAllData();
 }
 
-// Export data
+// Navigate directly to the API so the browser can send the Django admin session.
 function exportData() {
-    if (!dashboardData) {
-        showToast('Aucune donnée à exporter', 'error');
-        return;
-    }
-    
-    const dataStr = JSON.stringify(dashboardData, null, 2);
-    const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
-    
-    const exportFileDefaultName = 'dashboard_data_' + new Date().toISOString().split('T')[0] + '.json';
-    
     const linkElement = document.createElement('a');
-    linkElement.setAttribute('href', dataUri);
-    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.href = API_ENDPOINTS.export;
+    linkElement.target = '_blank';
+    linkElement.rel = 'noopener';
+    document.body.appendChild(linkElement);
     linkElement.click();
-    
-    showToast('Export réussi', 'success');
+    linkElement.remove();
+
+    showToast('Export lancé. Une session administrateur Django est requise.', 'success');
 }
 
 // Toggle sidebar
